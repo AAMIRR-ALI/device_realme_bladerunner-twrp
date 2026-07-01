@@ -1,0 +1,25 @@
+
+name: TWRP Recovery Builder
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-20.04
+    steps:
+    - name: Checkout Workflows
+      uses: actions/checkout@v4
+
+    - name: Run TWRP Compilation Engine
+      uses: bunnykek/Action-TWRP-Builder@master
+      with:
+        MANIFEST_URL: 'https://github.com'
+        MANIFEST_BRANCH: 'twrp-12.1'
+        DEVICE_TREE_URL: 'https://github.com'
+        DEVICE_TREE_BRANCH: 'main'
+        DEVICE_PATH: 'device/realme/bladerunner'
+        DEVICE_NAME: 'bladerunner'
+        MAKEFILE_NAME: 'twrp_bladerunner'
+        BUILD_TARGET: 'recovery'
+
